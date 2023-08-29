@@ -15,16 +15,19 @@ export class WeatherApiService {
 
   getWeatherData(cityName : string) : Observable<WeatherData> {
 
-    return this.http.get<WeatherData>('https://weatherapi-com.p.rapidapi.com/current.json', {
-      headers: new HttpHeaders()
-        .set(
-          'X-RapidAPI-Key',
-          'b585571fc8msha2d6558a951a226p1d7e54jsn60f3e0940558'
-        )
-        .set('X-RapidAPI-Host', 'open-weather13.p.rapidapi.com'),
+    return this.http.get<WeatherData>(
+      'https://weatherapi-com.p.rapidapi.com/current.json',
+      {
+        headers: new HttpHeaders()
+          .set(
+            'X-RapidAPI-Key',
+            'b585571fc8msha2d6558a951a226p1d7e54jsn60f3e0940558'
+          )
+          .set('X-RapidAPI-Host', 'weatherapi-com.p.rapidapi.com'),
 
-        params: new HttpParams().set("q",cityName)
-    });
+        params: new HttpParams().set('q', cityName),
+      }
+    );
 
   }
 }
